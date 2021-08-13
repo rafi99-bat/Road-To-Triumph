@@ -12,10 +12,13 @@ void iDraw()
 
 	iClear();
 
-	iShowBMP(pic_x, pic_y, "smurf.bmp");
+	int pic = iLoadImage("smurf.bmp");
+	//iShowBMP(pic_x, pic_y, "smurf.bmp");
 	//iShowBMP2(pic_x, pic_y, "tom_jerry.bmp",1);
 	//iShowBMPAlternativeSkipBlack(pic_x, pic_y, "tom_jerry.bmp");
 	//iShowBMP2(pic_x, pic_y, "mickey.bmp",0);
+
+	iShowImage(pic_x, pic_y, 128, 128, pic);
 
 	iText(10, 10, "Use cursors to move the picture.");
 }
