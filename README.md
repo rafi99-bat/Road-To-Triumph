@@ -8,7 +8,7 @@ The necessary files to build and run the project is in the [Dependencies](https:
 
 Last modified: December 20, 2015
 
-Original files of the header file can be found [here](https://github.com/rafi99-bat/iGraphics).
+Original files prepared by Nirjhar sir can be found [here](https://github.com/rafi99-bat/iGraphics).
 
 ### Additional Dependencies
 * `Microsoft Visual Studio` : Visual Studio 2010, 2012 or 2013 is recommended to build the project. Any previous or updated version of the IDE may result in failure of linking the project. The project has been built using Visual Studio 2010.
