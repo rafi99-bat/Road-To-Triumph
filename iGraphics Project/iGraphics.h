@@ -6,7 +6,8 @@
 //
 //  Version: 2.0.2012.2015
 //
-
+#ifndef IGRAPHICS_H
+#define IGRAPHICS_H
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -597,3 +598,5 @@ void iStart()
 	glEnable(GL_ALPHA_TEST);
 	glutMainLoop();
 }
+
+#endif //IGRAPHICS_H

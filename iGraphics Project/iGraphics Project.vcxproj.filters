@@ -18,10 +18,13 @@
     <ClInclude Include="iGraphics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="Bubble.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -29,15 +32,33 @@
     <None Include="smurf.bmp">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="Credit.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Credit.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="cursor(0).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="cursor(0).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="cursor2(255).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="cursor2(255).png">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bubble.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
