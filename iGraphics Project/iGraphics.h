@@ -6,13 +6,13 @@
 //
 //  Version: 2.0.2012.2015
 //
-
+#ifndef IGRAPHICS_H
+#define IGRAPHICS_H
 
 # include <stdio.h>
 # include <stdlib.h>
 #pragma comment(lib, "glut32.lib")
 #pragma comment(lib, "glaux.lib")
-//#pragma comment(lib, "legacy_stdio_definitions.lib")
 #include "glut.h"
 #include <time.h>
 #include <math.h>
@@ -30,6 +30,8 @@ void (*iAnimFunction[10])(void)=
 int iAnimCount = 0;
 int iAnimDelays[10];
 int iAnimPause[10];
+int initialTime = time(0), finalTime, frames = 0;
+bool notResizable = false;
 
 void iDraw();
 void iKeyboard(unsigned char);
@@ -38,55 +40,29 @@ void iMouseMove(int, int);
 void iPassiveMouse(int, int);
 void iMouse(int button, int state, int x, int y);
 
-static void __stdcall iA0(HWND, unsigned int, unsigned int, unsigned long)
+static void __stdcall iA0(HWND, unsigned int, unsigned int, unsigned long) { if (!iAnimPause[0]) iAnimFunction[0](); }
+static void __stdcall iA1(HWND, unsigned int, unsigned int, unsigned long) { if (!iAnimPause[1]) iAnimFunction[1](); }
+static void __stdcall iA2(HWND, unsigned int, unsigned int, unsigned long) { if (!iAnimPause[2]) iAnimFunction[2](); }
+static void __stdcall iA3(HWND, unsigned int, unsigned int, unsigned long) { if (!iAnimPause[3]) iAnimFunction[3](); }
+static void __stdcall iA4(HWND, unsigned int, unsigned int, unsigned long) { if (!iAnimPause[4]) iAnimFunction[4](); }
+static void __stdcall iA5(HWND, unsigned int, unsigned int, unsigned long) { if (!iAnimPause[5]) iAnimFunction[5](); }
+static void __stdcall iA6(HWND, unsigned int, unsigned int, unsigned long) { if (!iAnimPause[6]) iAnimFunction[6](); }
+static void __stdcall iA7(HWND, unsigned int, unsigned int, unsigned long) { if (!iAnimPause[7]) iAnimFunction[7](); }
+static void __stdcall iA8(HWND, unsigned int, unsigned int, unsigned long) { if (!iAnimPause[8]) iAnimFunction[8](); }
+static void __stdcall iA9(HWND, unsigned int, unsigned int, unsigned long) { if (!iAnimPause[9]) iAnimFunction[9](); }
+
+void setResizable(bool flag)
 {
-	if (!iAnimPause[0])
-		iAnimFunction[0]();
+	if(!flag) notResizable = true;
 }
-static void __stdcall iA1(HWND, unsigned int, unsigned int, unsigned long)
+
+//
+//	The callback function glutReshapeFunc(reshape) prevents user from resizing the window.
+//
+void reshape(int width, int height) 
 {
-	if (!iAnimPause[1])
-		iAnimFunction[1]();
-}
-static void __stdcall iA2(HWND, unsigned int, unsigned int, unsigned long)
-{
-	if (!iAnimPause[2])
-		iAnimFunction[2]();
-}
-static void __stdcall iA3(HWND, unsigned int, unsigned int, unsigned long)
-{
-	if (!iAnimPause[3])
-		iAnimFunction[3]();
-}
-static void __stdcall iA4(HWND, unsigned int, unsigned int, unsigned long)
-{
-	if (!iAnimPause[4])
-		iAnimFunction[4]();
-}
-static void __stdcall iA5(HWND, unsigned int, unsigned int, unsigned long)
-{
-	if (!iAnimPause[5])
-		iAnimFunction[5]();
-}
-static void __stdcall iA6(HWND, unsigned int, unsigned int, unsigned long)
-{
-	if (!iAnimPause[6])
-		iAnimFunction[6]();
-}
-static void __stdcall iA7(HWND, unsigned int, unsigned int, unsigned long)
-{
-	if (!iAnimPause[7])
-		iAnimFunction[7]();
-}
-static void __stdcall iA8(HWND, unsigned int, unsigned int, unsigned long)
-{
-	if (!iAnimPause[8])
-		iAnimFunction[8]();
-}
-static void __stdcall iA9(HWND, unsigned int, unsigned int, unsigned long)
-{
-	if (!iAnimPause[9])
-		iAnimFunction[9]();
+    // ignore the params and resizes the window to its original shape:
+    glutReshapeWindow(iScreenWidth, iScreenHeight);
 }
 
 int iSetTimer(int msec, void (*f)(void))
@@ -103,27 +79,17 @@ int iSetTimer(int msec, void (*f)(void))
 	iAnimDelays[i] = msec;
 	iAnimPause[i] = 0;
 
-	if (iAnimCount == 0)
-		SetTimer(0, 0, msec, iA0);
-	if (iAnimCount == 1)
-		SetTimer(0, 0, msec, iA1);
-	if (iAnimCount == 2)
-		SetTimer(0, 0, msec, iA2);
-	if (iAnimCount == 3)
-		SetTimer(0, 0, msec, iA3);
-	if (iAnimCount == 4)
-		SetTimer(0, 0, msec, iA4);
+	if (iAnimCount == 0) SetTimer(0, 0, msec, iA0);
+	if (iAnimCount == 1) SetTimer(0, 0, msec, iA1);
+	if (iAnimCount == 2) SetTimer(0, 0, msec, iA2);
+	if (iAnimCount == 3) SetTimer(0, 0, msec, iA3);
+	if (iAnimCount == 4) SetTimer(0, 0, msec, iA4);
+	if (iAnimCount == 5) SetTimer(0, 0, msec, iA5);
+	if (iAnimCount == 6) SetTimer(0, 0, msec, iA6);
+	if (iAnimCount == 7) SetTimer(0, 0, msec, iA7);
+	if (iAnimCount == 8) SetTimer(0, 0, msec, iA8);
+	if (iAnimCount == 9) SetTimer(0, 0, msec, iA9);
 
-	if (iAnimCount == 5)
-		SetTimer(0, 0, msec, iA5);
-	if (iAnimCount == 6)
-		SetTimer(0, 0, msec, iA6);
-	if (iAnimCount == 7)
-		SetTimer(0, 0, msec, iA7);
-	if (iAnimCount == 8)
-		SetTimer(0, 0, msec, iA8);
-	if (iAnimCount == 9)
-		SetTimer(0, 0, msec, iA9);
 	iAnimCount++;
 
 	return iAnimCount - 1;
@@ -227,41 +193,7 @@ unsigned int iLoadImage(char filename[])
 
 void iShowImage(int x, int y, int width, int height, unsigned int texture)
 {
-
-	//unsigned int texture;
-
-
-	//int width, height, bpp;
-	/*
-	BYTE* data(0);
-	data = stbi_load(filename, &width, &height, &bpp, 4);
-
-
-	glGenTextures(1, &texture);
-	glBindTexture(GL_TEXTURE_2D, texture);
-	glTexImage2D(GL_TEXTURE_2D,
-				 0,
-			     GL_RGBA,
-				 width, height,
-				 0,
-				 GL_RGBA,
-				 GL_UNSIGNED_BYTE,
-				 data);
-
-	stbi_image_free(data);
-
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	*/
-
-	//width = 100;
-	//height = 100;
 	glEnable(GL_TEXTURE_2D);
-
-
 
 	glBindTexture(GL_TEXTURE_2D, texture);
 
@@ -272,9 +204,6 @@ void iShowImage(int x, int y, int width, int height, unsigned int texture)
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
 	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
-
-	//glPushMatrix();
-	//glColor3f(1.0f, 1.0f, 1.0f);
 
 	glBegin(GL_QUADS);
 
@@ -291,7 +220,6 @@ void iShowImage(int x, int y, int width, int height, unsigned int texture)
 		glVertex2f(x, y + height);
 
 	glEnd();
-	//glPopMatrix();
 
 	glDisable(GL_TEXTURE_2D);
 
@@ -548,8 +476,7 @@ void iDelayMS(int msec)
 {
 	clock_t end;
 	end = clock() + msec * CLOCKS_PER_SEC / 1000;
-	while (end > clock())
-		;
+	while (end > clock());
 }
 
 void iClear()
@@ -560,11 +487,24 @@ void iClear()
 	glFlush();
 }
 
+void showFPS()
+{
+	frames++;
+	finalTime = time(0);
+	if(finalTime - initialTime >= 1)
+	{
+		printf("FPS : %d\n", frames / (finalTime - initialTime));
+		frames = 0;
+		initialTime = finalTime;
+	}
+}
+ 
 void displayFF(void)
 {
-
 	iDraw();
 	glutSwapBuffers();
+
+	//showFPS();
 }
 
 void animFF(void)
@@ -623,7 +563,7 @@ void iInitialize(int width = 500, int height = 500, char *title = "iGraphics")
 
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_ALPHA);
 	glutInitWindowSize(width, height);
-	glutInitWindowPosition(10, 10);
+	glutInitWindowPosition((glutGet(GLUT_SCREEN_WIDTH)-width) / 2, (glutGet(GLUT_SCREEN_HEIGHT)-height) / 2);
 	glutCreateWindow(title);
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	glMatrixMode (GL_PROJECTION);
@@ -632,7 +572,7 @@ void iInitialize(int width = 500, int height = 500, char *title = "iGraphics")
 	//glOrtho(-100.0 , 100.0 , -100.0 , 100.0 , -1.0 , 1.0) ;
 	//SetTimer(0, 0, 10, timer_proc);
 
-
+	
 
 }
 
@@ -641,6 +581,7 @@ void iStart()
 	iClear();
 
 	glutDisplayFunc(displayFF);
+	if(notResizable) glutReshapeFunc(reshape);
 	glutKeyboardFunc(keyboardHandler1FF); //normal
 	glutSpecialFunc(keyboardHandler2FF); //special keys
 	glutMouseFunc(mouseHandlerFF);
@@ -657,3 +598,5 @@ void iStart()
 	glEnable(GL_ALPHA_TEST);
 	glutMainLoop();
 }
+
+#endif //IGRAPHICS_H

@@ -63,13 +63,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="Credit.bmp" />
+    <None Include="Credit.png" />
+    <None Include="cursor(0).bmp" />
+    <None Include="cursor(0).png" />
+    <None Include="cursor2(255).bmp" />
+    <None Include="cursor2(255).png" />
     <None Include="smurf.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bubble.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="iGraphics.h" />
+    <ClInclude Include="Menu.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="iMain.cpp" />
+    <ClCompile Include="Bubble.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Application.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
