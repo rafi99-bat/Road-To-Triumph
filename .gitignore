@@ -1,9 +1,6 @@
-# Directories
 .vs/
 Debug/
 Release/
 iGraphics Project/Debug/
 ipch/
-
-# Files
-*.suo
+iGraphics Project.suo
