@@ -69,7 +69,8 @@
     <None Include="cursor(0).png" />
     <None Include="cursor2(255).bmp" />
     <None Include="cursor2(255).png" />
-    <None Include="smurf.bmp" />
+    <None Include="PauseMenu(255).bmp" />
+    <None Include="PauseMenu(255).png" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bubble.h" />
