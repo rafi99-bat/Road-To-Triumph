@@ -29,9 +29,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="smurf.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="Credit.bmp">
       <Filter>Resource Files</Filter>
     </None>
@@ -48,6 +45,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="cursor2(255).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="PauseMenu(255).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="PauseMenu(255).png">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

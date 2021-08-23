@@ -49,7 +49,7 @@ void timer()
 {
 	if (menu == GAME)
 	{
-		if(!sec) return;
+		if(!sec) menu = GAME_OVER;
 		sec--;
 	}
 }
@@ -265,12 +265,12 @@ void iDraw()
 		iShowBMP(screenPosX, screenPosY, "PauseMenu(255).bmp");
 		if (mouseMode == CLICKABLE)
 		{
-			if ((mousePosX >= 448 && mousePosX <= 585) && (mousePosY >= 420 && mousePosY <= 464)) iLine(471, 430, 562, 430);
-			else if ((mousePosX >= 448 && mousePosX <= 585) && (mousePosY >= 363 && mousePosY <= 408)) iLine(476, 374, 556, 374);
-			else if ((mousePosX >= 448 && mousePosX <= 585) && (mousePosY >= 304 && mousePosY <= 351)) iLine(488, 318, 543, 318);
-			else if ((mousePosX >= 448 && mousePosX <= 585) && (mousePosY >= 247 && mousePosY <= 292)) iLine(489, 259, 542, 259);
-			else if ((mousePosX >= 448 && mousePosX <= 585) && (mousePosY >= 190 && mousePosY <= 236)) iLine(457, 201, 579, 201);
-			else if ((mousePosX >= 448 && mousePosX <= 585) && (mousePosY >= 132 && mousePosY <= 177)) iLine(497, 144, 537, 144);
+			if ((mousePosX >= 653 && mousePosX <= 825) && (mousePosY >= 453 && mousePosY <= 507)) iLine(684, 464, 796, 464);
+			else if ((mousePosX >= 653 && mousePosX <= 825) && (mousePosY >= 383 && mousePosY <= 437)) iLine(689, 396, 788, 396);
+			else if ((mousePosX >= 653 && mousePosX <= 825) && (mousePosY >= 311 && mousePosY <= 366)) iLine(704, 327, 772, 327);
+			else if ((mousePosX >= 653 && mousePosX <= 825) && (mousePosY >= 240 && mousePosY <= 294)) iLine(705, 254, 771, 254);
+			else if ((mousePosX >= 653 && mousePosX <= 825) && (mousePosY >= 168 && mousePosY <= 223)) iLine(665, 183, 816, 183);
+			else if ((mousePosX >= 653 && mousePosX <= 825) && (mousePosY >= 96 && mousePosY <= 151)) iLine(715, 113, 764, 113);
 		}
 	}
 	if (menu == CREDITS)
@@ -283,8 +283,8 @@ void iDraw()
 			else if ((mousePosX >= 701 && mousePosX <= 832) && (mousePosY >= 136 && mousePosY <= 153)) iLine(702, 136, 834, 136);
 		}
 	}
-	iShowBMP2(mousePosX, mousePosY - 31, "cursor(0).bmp", 0);
-	glutSetCursor(GLUT_CURSOR_NONE);
+	//iShowBMP2(mousePosX, mousePosY - 31, "cursor(0).bmp", 0);
+	//glutSetCursor(GLUT_CURSOR_NONE);
 }
 
 /*
@@ -309,12 +309,12 @@ void iPassiveMouse(int mx, int my)
 	}
 	if (menu == PAUSE_MENU)
 	{
-		if (((mx >= 448 && mx <= 585) && (my >= 420 && my <= 464)) || 
-		    ((mx >= 448 && mx <= 585) && (my >= 363 && my <= 408)) ||
-			((mx >= 448 && mx <= 585) && (my >= 304 && my <= 351)) || 
-			((mx >= 448 && mx <= 585) && (my >= 247 && my <= 292)) || 
-			((mx >= 448 && mx <= 585) && (my >= 190 && my <= 236)) || 
-			((mx >= 448 && mx <= 585) && (my >= 132 && my <= 177))) mouseMode = CLICKABLE;
+		if (((mx >= 653 && mx <= 825) && (my >= 453 && my <= 507)) || 
+		    ((mx >= 653 && mx <= 825) && (my >= 383 && my <= 437)) ||
+			((mx >= 653 && mx <= 825) && (my >= 311 && my <= 366)) || 
+			((mx >= 653 && mx <= 825) && (my >= 240 && my <= 294)) || 
+			((mx >= 653 && mx <= 825) && (my >= 168 && my <= 223)) || 
+			((mx >= 653 && mx <= 825) && (my >= 96 && my <= 151))) mouseMode = CLICKABLE;
 		else mouseMode = NON_CLICKABLE;
 	}
 	if (menu == CREDITS)
@@ -338,11 +338,11 @@ void iMouse(int button, int state, int mx, int my)
 		if (menu == MAIN_MENU)
 		{
 			initDeclare();
-			menu == GAME;
+			menu = GAME;
 		}
 		if (menu == PAUSE_MENU)
 		{
-			if (((mx >= 448 && mx <= 585) && (my >= 420 && my <= 464)))
+			if ((mx >= 653 && mx <= 825) && (my >= 453 && my <= 507))
 			{
 				menu = GAME;
 				iResumeTimer(0);
@@ -352,7 +352,7 @@ void iMouse(int button, int state, int mx, int my)
 				iResumeTimer(4);
 				iResumeTimer(5);
 			}
-			else if ((mx >= 448 && mx <= 585) && (my >= 363 && my <= 408))
+			else if ((mx >= 653 && mx <= 825) && (my >= 383 && my <= 437))
 			{
 				initDeclare();
 				iResumeTimer(0);
@@ -363,10 +363,10 @@ void iMouse(int button, int state, int mx, int my)
 				iResumeTimer(5);
 				iResumeTimer(6);
 			}
-			else if ((mx >= 448 && mx <= 585) && (my >= 304 && my <= 351));
-			else if ((mx >= 448 && mx <= 585) && (my >= 247 && my <= 292));
-			else if ((mx >= 448 && mx <= 585) && (my >= 190 && my <= 236)) menu = MAIN_MENU;
-			else if ((mx >= 448 && mx <= 585) && (my >= 132 && my <= 177)) exit(0);
+			else if ((mx >= 653 && mx <= 825) && (my >= 311 && my <= 366));
+			else if ((mx >= 653 && mx <= 825) && (my >= 240 && my <= 294));
+			else if ((mx >= 653 && mx <= 825) && (my >= 168 && my <= 223)) menu = MAIN_MENU;
+			else if ((mx >= 653 && mx <= 825) && (my >= 96 && my <= 151)) exit(0);
 		}
 		if (menu == CREDITS)
 		{
@@ -393,7 +393,7 @@ void iKeyboard(unsigned char key)
 	}
 	else if (menu == GAME)
 	{
-		//key = tolower(key);
+		key = tolower(key);
 		if (key == 'a')
 		{
 			if (alphabet[bubble1.id] == key && (bubble1.posY >= -bubble1.radius && bubble1.posY <= screenHeight))
