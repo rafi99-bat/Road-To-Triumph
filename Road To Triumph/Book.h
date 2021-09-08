@@ -8,16 +8,19 @@ typedef struct Book Book;
 struct Book
 {
 	double posX, posY;
-	int radius;
+	int size;
 	double speed;
-	int state;
-	int id;
+	int index;
 	int score;
+	int count;
+	bool state;
+	double GPA;
 
 	Book();
-	Book(double posX, int radius, double speed, int state, int id);
+	Book(double posX, double speed, int index);
 	~Book();
 
 	void bookUpdate();
+	void GPAcount();
 };
 #endif
