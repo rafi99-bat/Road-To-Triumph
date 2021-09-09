@@ -538,6 +538,11 @@ void iDraw()
 		showScoreBoard();
 		showCursor();
 	}
+	if (menu == INSTRUCTIONS)
+	{
+		iShowBMP(screenPosX, screenPosY, "res/images/Handbook.bmp");
+		showCursor();
+	}
 	if (menu == CREDITS)
 	{
 		iShowBMP(screenPosX, screenPosY, "res/images/Credit.bmp");
@@ -673,6 +678,7 @@ void iMouse(int button, int state, int mx, int my)
 				iPauseTimer(3);
 				iPauseTimer(4);
 				iPauseTimer(5);
+				iPauseTimer(6);
 				menu = PAUSE_MENU;
 			}
 			if (!book[0].count && !book[1].count && !book[2].count && !book[3].count && !book[4].count)
@@ -694,6 +700,7 @@ void iMouse(int button, int state, int mx, int my)
 				iResumeTimer(3);
 				iResumeTimer(4);
 				iResumeTimer(5);
+				iResumeTimer(6);
 			}
 			else if ((mx >= 653 && mx <= 825) && (my >= 383 && my <= 437))
 			{
@@ -749,6 +756,11 @@ void iMouse(int button, int state, int mx, int my)
 			if ((mx >= 810 && mx <= 928) && (my >= 524 && my <= 563))
 				menu = MAIN_MENU;
 		}
+		else if (menu == INSTRUCTIONS)
+		{
+			if ((mx >= 41 && mx <= 144) && (my >= 468 && my <= 539))
+				menu = MAIN_MENU;
+		}
 		else if (menu == CREDITS)
 		{
 			if ((mx >= 136 && mx <= 348) && (my >= 136 && my <= 151))
@@ -760,6 +772,9 @@ void iMouse(int button, int state, int mx, int my)
 			else if ((mx >= 25 && mx <= 149) && (my >= 540 && my <= 589))
 				menu = MAIN_MENU;
 		}
+	}
+	if(button == GLUT_MIDDLE_BUTTON && state == GLUT_DOWN)
+	{
 	}
 	if(button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN)
 	{
@@ -2732,6 +2747,7 @@ void iKeyboard(unsigned char key)
 			iPauseTimer(3);
 			iPauseTimer(4);
 			iPauseTimer(5);
+			iPauseTimer(6);
 			menu = PAUSE_MENU;
 		}
 	}
@@ -2749,6 +2765,7 @@ void iKeyboard(unsigned char key)
 			iResumeTimer(3);
 			iResumeTimer(4);
 			iResumeTimer(5);
+			iResumeTimer(6);
 		}
 	}
 	else if (menu == GAME_OVER)
@@ -2838,6 +2855,7 @@ void update()
 	supplementary.count = 40;
 	supplementary.state = false;
 	supplementary.score = 5;
+
 	iSetTimer(8000, speedup);
 	iSetTimer(10, book0Move);
 	iSetTimer(10, book1Move);
@@ -2845,6 +2863,7 @@ void update()
 	iSetTimer(10, book3Move);
 	iSetTimer(10, book4Move);
 	iSetTimer(10, supplementaryMove);
+
 	if (playing)
 		PlaySound(TEXT("res/audio/bensound-buddy.wav"), NULL, SND_LOOP | SND_ASYNC);
 	iInitialize(screenWidth, screenHeight, "Road to Triumph");
