@@ -22,19 +22,19 @@ char buffer[2];
 int menu = GAME;
 int charLength = sizeof(alphabet)/sizeof(char);
 
-Book book1 = Book(rand()%screenWidth, 30, 0.5, 1, rand() % charLength);
-Book book2 = Book(rand()%screenWidth, 30, 2, 1, rand() % charLength);
-Book book3 = Book(rand()%screenWidth, 30, 1, 1, rand() % charLength);
-Book book4 = Book(rand()%screenWidth, 30, 1.5, 1, rand() % charLength);
-Book book5 = Book(rand()%screenWidth, 30, 2.5, 1, rand() % charLength);
+Book book1 = Book(rand()%screenWidth, 30, 0.5, 1, rand() % (charLength / 5));
+Book book2 = Book(rand()%screenWidth, 30, 2, 1, (charLength / 5) + rand() % (charLength / 5));
+Book book3 = Book(rand()%screenWidth, 30, 1, 1, 2 * (charLength / 5) + rand() % (charLength / 5));
+Book book4 = Book(rand()%screenWidth, 30, 1.5, 1, 3 * (charLength / 5) + rand() % (charLength / 5));
+Book book5 = Book(rand()%screenWidth, 30, 2.5, 1, 4 * (charLength / 5) + rand() % (charLength / 5));
 
 void initDeclare()
 {
-	book1 = Book(rand()%screenWidth, 30, 0.5, 1, rand() % charLength);
-	book2 = Book(rand()%screenWidth, 30, 2, 1, rand() % charLength);
-	book3 = Book(rand()%screenWidth, 30, 1, 1, rand() % charLength);
-	book4 = Book(rand()%screenWidth, 30, 1.5, 1, rand() % charLength);
-	book5 = Book(rand()%screenWidth, 30, 2.5, 1, rand() % charLength);
+	book1 = Book(rand()%screenWidth, 30, 0.5, 1, rand() % (charLength / 5));
+	book2 = Book(rand()%screenWidth, 30, 2, 1, (charLength / 5) + rand() % (charLength / 5));
+	book3 = Book(rand()%screenWidth, 30, 1, 1, 2 * (charLength / 5) + rand() % (charLength / 5));
+	book4 = Book(rand()%screenWidth, 30, 1.5, 1, 3 * (charLength / 5) + rand() % (charLength / 5));
+	book5 = Book(rand()%screenWidth, 30, 2.5, 1, 4 * (charLength / 5) + rand() % (charLength / 5));
 	menu = GAME;
 }
 
@@ -62,17 +62,13 @@ void book1Move()
 {
 	if (menu == GAME)
 	{
-		
-	}
-	if (menu == GAME)
-	{
 		if (book1.state == 1)
 		{
 			if (book1.posY > screenHeight)
 			{
 				book1.posX = rand() % screenWidth;
 				book1.posY = -book1.radius;
-				book1.id = rand() % charLength;
+				book1.id = rand() % (charLength / 5);
 			}
 			else if (book1.posY <= screenHeight)
 			{
@@ -86,17 +82,13 @@ void book2Move()
 {
 	if (menu == GAME)
 	{
-		
-	}
-	if (menu == GAME)
-	{
 		if (book2.state == 1)
 		{
 			if (book2.posY > screenHeight)
 			{
 				book2.posX = rand() % screenWidth;
 				book2.posY = -book2.radius;
-				book2.id = rand() % charLength;
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
 			}
 			else if (book2.posY <= screenHeight)
 			{
@@ -110,17 +102,13 @@ void book3Move()
 {
 	if (menu == GAME)
 	{
-		
-	}
-	if (menu == GAME)
-	{
 		if (book3.state == 1)
 		{
 			if (book3.posY > screenHeight)
 			{
 				book3.posX = rand() % screenWidth;
 				book3.posY = -book3.radius;
-				book3.id = rand() % charLength;
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
 			}
 			else if (book3.posY <= screenHeight)
 			{
@@ -134,17 +122,13 @@ void book4Move()
 {
 	if (menu == GAME)
 	{
-		
-	}
-	if (menu == GAME)
-	{
 		if (book4.state == 1)
 		{
 			if (book4.posY > screenHeight)
 			{
 				book4.posX = rand() % screenWidth;
 				book4.posY = -book4.radius;
-				book4.id = rand() % charLength;
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
 			}
 			else if (book4.posY <= screenHeight)
 			{
@@ -158,17 +142,13 @@ void book5Move()
 {
 	if (menu == GAME)
 	{
-		
-	}
-	if (menu == GAME)
-	{
 		if (book5.state == 1)
 		{
 			if (book5.posY > screenHeight)
 			{
 				book5.posX = rand() % screenWidth;
 				book5.posY = -book5.radius;
-				book5.id = rand() % charLength;
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
 			}
 			else if (book5.posY <= screenHeight)
 			{
@@ -373,115 +353,395 @@ void iKeyboard(unsigned char key)
 	{
 		if (key == 'a')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'b')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'c')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'd')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'e')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'f')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'g')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'h')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'i')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'j')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'k')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'l')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'm')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'n')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'o')
 		{
@@ -493,195 +753,675 @@ void iKeyboard(unsigned char key)
 		}
 		else if (key == 'p')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'q')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'r')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 's')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 't')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'u')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'v')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'w')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'x')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'y')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == 'z')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == ',')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == ';')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == '=')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == '!')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == '&')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == '*')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == '#')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == '%')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == '(')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == ')')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == '{')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == '}')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		else if (key == '-')
 		{
-			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY <= screenHeight)) book1.bookUpdate();
-			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY <= screenHeight)) book2.bookUpdate();
-			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY <= screenHeight)) book3.bookUpdate();
-			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY <= screenHeight)) book4.bookUpdate();
-			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY <= screenHeight)) book5.bookUpdate();
+			if (alphabet[book1.id] == key && (book1.posY >= -book1.radius && book1.posY - 40 <= screenHeight))
+			{
+				book1.bookUpdate();
+				book1.id = rand() % (charLength / 5);
+			}
+			else if (alphabet[book2.id] == key && (book2.posY >= -book2.radius && book2.posY - 40 <= screenHeight))
+			{
+				book2.bookUpdate();
+				book2.id = (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book3.id] == key && (book3.posY >= -book3.radius && book3.posY - 40 <= screenHeight))
+			{
+				book3.bookUpdate();
+				book3.id = 2 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book4.id] == key && (book4.posY >= -book4.radius && book4.posY - 40 <= screenHeight))
+			{
+				book4.bookUpdate();
+				book4.id = 3 * (charLength / 5) + rand() % (charLength / 5);
+			}
+			else if (alphabet[book5.id] == key && (book5.posY >= -book5.radius && book5.posY - 40 <= screenHeight))
+			{
+				book5.bookUpdate();
+				book5.id = 4 * (charLength / 5) + rand() % (charLength / 5);
+			}
 		}
 		if (key == 27)
 		{
