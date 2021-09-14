@@ -1,5 +1,5 @@
-#ifndef BUBBLE_H
-#define BUBBLE_H
+#ifndef BOOK_H
+#define BOOK_H
 
 #define MAX_SCORE 100
 

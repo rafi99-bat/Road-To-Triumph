@@ -38,26 +38,6 @@ void initDeclare()
 	menu = GAME;
 }
 
-void scoring()
-{
-	iSetColor(255, 255, 255);
-	iText(30, 556, "CSE 1205:", GLUT_BITMAP_HELVETICA_18);
-	sprintf(str, "%.2lf", book1.score);
-	iText(120, 556, str, GLUT_BITMAP_HELVETICA_18);
-	iText(180, 556, "CSE 1203:", GLUT_BITMAP_HELVETICA_18);
-	sprintf(str, "%.2lf", book2.score);
-	iText(270, 556, str, GLUT_BITMAP_HELVETICA_18);
-	iText(330, 556, "EEE 1241:", GLUT_BITMAP_HELVETICA_18);
-	sprintf(str, "%.2lf", book3.score);
-	iText(420, 556, str, GLUT_BITMAP_HELVETICA_18);
-	iText(480, 556, "ME 1211:", GLUT_BITMAP_HELVETICA_18);
-	sprintf(str, "%.2lf", book4.score);
-	iText(563, 556, str, GLUT_BITMAP_HELVETICA_18);
-	iText(622, 556, "EEE 1241:", GLUT_BITMAP_HELVETICA_18);
-	sprintf(str, "%.2lf", book5.score);
-	iText(713, 556, str, GLUT_BITMAP_HELVETICA_18);
-}
-
 void book1Move()
 {
 	if (menu == GAME)
@@ -214,13 +194,11 @@ void iDraw()
 			sprintf(buffer, "%c", alphabet[book5.id]);
 			iText(book5.posX - 5, book5.posY - 5, buffer, GLUT_BITMAP_HELVETICA_18);
 		}
-		//iSetColor(51, 51, 255);
-		//iFilledRectangle(screenPosX, screenPosY + 530, screenWidth, 70);
-		//scoring();
 	}
 	if (menu == PAUSE_MENU)
 	{
 		iShowBMP(screenPosX, screenPosY, "res\\images\\PauseMenu(255).bmp");
+		iSetColor(255, 255, 255);
 		if (mouseMode == CLICKABLE)
 		{
 			if ((mousePosX >= 653 && mousePosX <= 825) && (mousePosY >= 453 && mousePosY <= 507)) iLine(684, 464, 796, 464);
@@ -308,7 +286,6 @@ void iMouse(int button, int state, int mx, int my)
 				iResumeTimer(2);
 				iResumeTimer(3);
 				iResumeTimer(4);
-				iResumeTimer(5);
 			}
 			else if ((mx >= 653 && mx <= 825) && (my >= 383 && my <= 437))
 			{
@@ -318,8 +295,6 @@ void iMouse(int button, int state, int mx, int my)
 				iResumeTimer(2);
 				iResumeTimer(3);
 				iResumeTimer(4);
-				iResumeTimer(5);
-				iResumeTimer(6);
 			}
 			else if ((mx >= 653 && mx <= 825) && (my >= 311 && my <= 366));
 			else if ((mx >= 653 && mx <= 825) && (my >= 240 && my <= 294));
@@ -1430,7 +1405,6 @@ void iKeyboard(unsigned char key)
 			iPauseTimer(2);
 			iPauseTimer(3);
 			iPauseTimer(4);
-			iPauseTimer(5);
 			menu = PAUSE_MENU;
 		}
 	}
@@ -1450,7 +1424,6 @@ void iKeyboard(unsigned char key)
 			iResumeTimer(2);
 			iResumeTimer(3);
 			iResumeTimer(4);
-			iResumeTimer(5);
 		}
 	}
 	else if (menu == DIFFICULTY)

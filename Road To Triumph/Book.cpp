@@ -30,6 +30,5 @@ void Book::bookUpdate()
 	state = 0;
 	posX = rand() % 1024;
 	posY = -radius;
-	//id = rand() % 26;
 	state = 1;
 }
