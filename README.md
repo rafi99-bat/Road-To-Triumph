@@ -6,6 +6,13 @@ Term Project, Software Development I [CSE 1200]
 Department of Computer Science and Engineering<br>
 Ahsanullah University of Science and Technology, Bangladesh
 
+## ScreenShots:
+![screenshot_1](https://github.com/rafi99-bat/Road-To-Triumph/blob/main/Screenshots/Screenshot%20-%201.png)
+
+![screenshot_2](https://github.com/rafi99-bat/Road-To-Triumph/blob/main/Screenshots/Screenshot%20-%202.png)
+
+![screenshot_3](https://github.com/rafi99-bat/Road-To-Triumph/blob/main/Screenshots/Screenshot%20-%203.png)
+
 ## Authors
 * [Rafeed Mahbub Rafi (ID - 200104041)](https://www.github.com/rafi99-bat)
 * [Syed Muhtasib Mashruk (ID - 200104029)](https://www.github.com/SyedMashruk)
