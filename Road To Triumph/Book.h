@@ -13,7 +13,6 @@ struct Book
 	int index;
 	int score;
 	int count;
-	bool state;
 	double GPA;
 
 	Book();
@@ -23,4 +22,17 @@ struct Book
 	void bookUpdate();
 	void GPAcount();
 };
+
+unsigned int iLoadImage(char filename[]);
+void initDeclare();
+int lowestScore(Book book[]);
+void bookImageLoad();
+void book0Move();
+void book1Move();
+void book2Move();
+void book3Move();
+void book4Move();
+void supplementaryMove();
+void speedup();
+
 #endif

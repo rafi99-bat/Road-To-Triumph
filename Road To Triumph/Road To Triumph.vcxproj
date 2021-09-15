@@ -108,14 +108,18 @@ copy /Y "$(SolutionDir)Dependencies\OpenGL\dll\opengl32.dll" "$(SolutionDir)$(Co
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Book.h" />
-    <ClInclude Include="Game.h" />
+    <ClInclude Include="FileUtils.h" />
     <ClInclude Include="iGraphics.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Render.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Book.cpp" />
+    <ClCompile Include="FileUtils.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Render.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glu32.dll" />
