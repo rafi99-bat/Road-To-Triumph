@@ -1,6 +1,7 @@
 #include "Input.h"
 #include "Book.h"
 #include "FileUtils.h"
+#include "Menu.h"
 
 extern int screenWidth, screenHeight;
 extern double screenPosX, screenPosY;

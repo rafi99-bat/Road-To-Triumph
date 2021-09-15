@@ -1,7 +1,6 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include "Menu.h"
 #include "Book.h"
 
 #include <Windows.h>

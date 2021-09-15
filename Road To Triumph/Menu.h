@@ -1,6 +1,10 @@
 #ifndef MENU_H
 #define MENU_H
 
+#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_DEPRECATE
+#define _CRT_NONSTDC_NO_DEPRECATE
+
 #define INTRO 0
 #define MAIN_MENU 1
 #define GAME 2
