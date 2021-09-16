@@ -87,6 +87,7 @@ void iMouse(int button, int state, int mx, int my)
 			if ((mx >= 675 && mx <= 846) && (my >= 506 && my <= 547))
 			{
 				initDeclare();
+				menu = GAME;
 			}
 			else if ((mx >= 670 && mx <= 847) && (my >= 422 && my <= 463));
 			else if ((mx >= 676 && mx <= 844) && (my >= 334 && my <= 379))
@@ -140,6 +141,7 @@ void iMouse(int button, int state, int mx, int my)
 			else if ((mx >= 653 && mx <= 825) && (my >= 383 && my <= 437))
 			{
 				initDeclare();
+				menu = GAME;
 				iResumeTimer(0);
 				iResumeTimer(1);
 				iResumeTimer(2);

@@ -83,7 +83,6 @@ void initDeclare()
 	supplementary.index = rand() % charLength;
 	supplementary.count = 40;
 	supplementary.score = 5;
-	menu = GAME;
 }
 
 int lowestScore(Book book[])
