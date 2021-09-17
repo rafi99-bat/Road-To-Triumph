@@ -249,15 +249,15 @@ void supplementaryMove()
 
 void speedup()
 {
-	if (book[0].score <= 60)
+	if (book[0].score <= 40)
 		book[0].speed += 0.125;
-	if (book[1].score <= 60)
+	if (book[1].score <= 40)
 		book[1].speed += 0.125;
-	if (book[2].score <= 60)
+	if (book[2].score <= 40)
 		book[2].speed += 0.125;
-	if (book[3].score <= 60)
+	if (book[3].score <= 40)
 		book[3].speed += 0.125;
-	if (book[4].score <= 60)
+	if (book[4].score <= 40)
 		book[4].speed += 0.125;
 
 	if (book[0].score > 60)

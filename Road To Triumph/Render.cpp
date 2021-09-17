@@ -147,8 +147,8 @@ void showScoreBoard()
 
 void showCursor()
 {
-	iShowImage(mousePosX, mousePosY - 31, 30, 30, iLoadImage("res/images/cursor.png"));
 	glutSetCursor(GLUT_CURSOR_NONE);
+	iShowImage(mousePosX, mousePosY - 31, 30, 30, iLoadImage("res/images/cursor.png"));
 }
 
 void bookRender()
