@@ -25,7 +25,7 @@ Book::Book(double posX, double speed, int index)
 	this->speed = speed;
 	this->index = index;
 	score = 0;
-	count = 101;
+	count = 51;
 	GPA = 0.00;
 }
 
@@ -36,8 +36,8 @@ Book::~Book()
 void Book::bookUpdate()
 {
 	PlaySound(TEXT("res/audio/book-collect.wav"), NULL, SND_ASYNC);
-	if (score <= 100)
-		score++;
+	if (score <= 98)
+		score += 2;
 	if (count != 0)
 		count--;
 	posY = -size - rand() % 300;
@@ -250,24 +250,37 @@ void supplementaryMove()
 void speedup()
 {
 	if (book[0].score <= 40)
-		book[0].speed += 0.125;
-	if (book[1].score <= 40)
-		book[1].speed += 0.125;
-	if (book[2].score <= 40)
-		book[2].speed += 0.125;
-	if (book[3].score <= 40)
-		book[3].speed += 0.125;
-	if (book[4].score <= 40)
-		book[4].speed += 0.125;
+		book[0].speed += 0.25;
+	else if (book[0].score > 40 && book[0].score <= 60)
+		book[0].speed += 0.5;
+	else
+		book[0].speed += 0.75;
 
-	if (book[0].score > 60)
-		book[0].speed += 0.65;
-	if (book[1].score > 60)
-		book[1].speed += 0.65;
-	if (book[2].score > 60)
-		book[2].speed += 0.65;
-	if (book[3].score > 60)
-		book[3].speed += 0.65;
-	if (book[4].score > 60)
-		book[4].speed += 0.65;
+	if (book[1].score <= 40)
+		book[1].speed += 0.25;
+	else if (book[1].score > 40 && book[1].score <= 60)
+		book[1].speed += 0.5;
+	else
+		book[1].speed += 0.75;
+
+	if (book[2].score <= 40)
+		book[2].speed += 0.25;
+	else if (book[2].score > 40 && book[2].score <= 60)
+		book[2].speed += 0.5;
+	else
+		book[2].speed += 0.75;
+
+	if (book[3].score <= 40)
+		book[3].speed += 0.25;
+	else if (book[3].score > 40 && book[3].score <= 60)
+		book[3].speed += 0.5;
+	else
+		book[3].speed += 0.75;
+
+	if (book[4].score <= 40)
+		book[4].speed += 0.25;
+	else if (book[4].score > 40 && book[4].score <= 60)
+		book[4].speed += 0.5;
+	else
+		book[4].speed += 0.75;
 }

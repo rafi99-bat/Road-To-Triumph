@@ -208,7 +208,27 @@ void iKeyboard(unsigned char key)
 	{
 		if (key == 'a')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -237,28 +257,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'b')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -287,28 +310,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'c')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -337,28 +363,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'd')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -387,28 +416,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'e')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -437,28 +469,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'f')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -487,28 +522,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'g')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -537,28 +575,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'h')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -587,28 +628,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'i')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -637,28 +681,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'j')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -687,28 +734,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'k')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -737,28 +787,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'l')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -787,28 +840,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'm')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -837,28 +893,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'n')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -887,28 +946,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'o')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -937,28 +999,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'p')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -987,28 +1052,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'q')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1037,28 +1105,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'r')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1087,28 +1158,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 's')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1137,28 +1211,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 't')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1187,28 +1264,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'u')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1237,28 +1317,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'v')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1287,28 +1370,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'w')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1337,28 +1423,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'x')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1387,28 +1476,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'y')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1437,28 +1529,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == 'z')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1487,28 +1582,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == ',')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1537,28 +1635,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == ';')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1587,28 +1688,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == '=')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1637,28 +1741,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == '!')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1687,28 +1794,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == '&')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1737,28 +1847,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == '*')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1787,28 +1900,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == '#')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1837,28 +1953,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == '%')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1887,28 +2006,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == '(')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1937,28 +2059,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == ')')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -1987,28 +2112,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == '{')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -2037,28 +2165,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == '}')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -2087,28 +2218,31 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		else if (key == '-')
 		{
-			if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
+			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
+			{
+				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				supplementary.count--;
+				int min = lowestScore(book);
+				for (int i = 0; i < 5; i++)
+				{
+					if (book[i].score == min)
+					{
+						if (book[i].score <= 97)
+						{
+							book[i].score += supplementary.score;
+							break;
+						}
+					}
+				}
+				supplementary.posY = -300;
+				supplementary.index = rand() % charLength;
+				specialState = false;
+			}
+			else if (alphabet[book[0].index] == key && (book[0].posY >= -book[0].size && book[0].posY - 40 <= screenHeight))
 			{
 				book[0].posX = 313;
 				book[0].bookUpdate();
@@ -2137,23 +2271,6 @@ void iKeyboard(unsigned char key)
 				book[4].posX = 881;
 				book[4].bookUpdate();
 				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-			}
-			else if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
-			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
-				supplementary.count--;
-				int min = lowestScore(book);
-				for (int i = 0; i < 5; i++)
-				{
-					if (book[i].score == min)
-					{
-						book[i].score += supplementary.score;
-						break;
-					}
-				}
-				supplementary.posY = -300;
-				supplementary.index = rand() % charLength;
-				specialState = false;
 			}
 		}
 		if (key == 27)
