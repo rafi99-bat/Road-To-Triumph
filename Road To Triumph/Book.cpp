@@ -72,7 +72,6 @@ extern Book supplementary;
 
 void initDeclare()
 {
-	srand(time(NULL));
 	book[0] = Book(313, 1, rand() % (charLength / 5));
 	book[1] = Book(455, 1, (charLength / 5) + rand() % (charLength / 5));
 	book[2] = Book(597, 1, 2 * (charLength / 5) + rand() % (charLength / 5));

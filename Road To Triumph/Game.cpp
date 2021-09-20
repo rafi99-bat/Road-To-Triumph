@@ -45,6 +45,7 @@ void update()
 
 int main()
 {
+	srand(time(NULL));
 	initDeclare();
 	update();
 	iInitialize(screenWidth, screenHeight, "Road to Triumph");
