@@ -72,6 +72,7 @@ extern Book supplementary;
 
 void initDeclare()
 {
+	srand(time(NULL));
 	book[0] = Book(313, 1, rand() % (charLength / 5));
 	book[1] = Book(455, 1, (charLength / 5) + rand() % (charLength / 5));
 	book[2] = Book(597, 1, 2 * (charLength / 5) + rand() % (charLength / 5));
@@ -79,7 +80,7 @@ void initDeclare()
 	book[4] = Book(881, 1, 4 * (charLength / 5) + rand() % (charLength / 5));
 	supplementary.posX = 171 + rand() % 853;
 	supplementary.posY = -300;
-	supplementary.speed = 2;
+	supplementary.speed = 3;
 	supplementary.index = rand() % charLength;
 	supplementary.count = 40;
 	supplementary.score = 5;
@@ -233,6 +234,7 @@ void supplementaryMove()
 			{
 				if (supplementary.count)
 				{
+					specialState = false;
 					supplementary.count--;
 					supplementary.posX = 171 + rand() % 853;
 					supplementary.posY = -300;

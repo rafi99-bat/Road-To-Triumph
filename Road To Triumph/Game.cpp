@@ -34,7 +34,7 @@ int charLength = sizeof(alphabet)/sizeof(char);
 
 void update()
 {
-	iSetTimer(8000, speedup);
+	iSetTimer(6000, speedup);
 	iSetTimer(10, book0Move);
 	iSetTimer(10, book1Move);
 	iSetTimer(10, book2Move);
