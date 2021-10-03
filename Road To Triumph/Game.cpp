@@ -7,6 +7,7 @@
 #include <Windows.h>
 #include <ctype.h>
 #include <time.h>
+#include "FileUtils.h"
 
 int screenWidth = 1024;
 int screenHeight = 600;

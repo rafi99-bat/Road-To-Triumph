@@ -89,9 +89,21 @@ void iMouse(int button, int state, int mx, int my)
 				initDeclare();
 				menu = GAME;
 			}
-			else if ((mx >= 670 && mx <= 847) && (my >= 422 && my <= 463));
+			else if ((mx >= 670 && mx <= 847) && (my >= 422 && my <= 463))
+			{
+				Load();
+				menu = GAME;
+				iResumeTimer(0);
+				iResumeTimer(1);
+				iResumeTimer(2);
+				iResumeTimer(3);
+				iResumeTimer(4);
+				iResumeTimer(5);
+				iResumeTimer(6);
+			}
 			else if ((mx >= 676 && mx <= 844) && (my >= 334 && my <= 379))
 			{
+				loadScore();
 				menu = SCORE_BOARD;
 			}
 			else if ((mx >= 670 && mx <= 848) && (my >= 254 && my <= 297))
@@ -150,8 +162,22 @@ void iMouse(int button, int state, int mx, int my)
 				iResumeTimer(5);
 				iResumeTimer(6);
 			}
-			else if ((mx >= 653 && mx <= 825) && (my >= 311 && my <= 366));
-			else if ((mx >= 653 && mx <= 825) && (my >= 240 && my <= 294));
+			else if ((mx >= 653 && mx <= 825) && (my >= 311 && my <= 366))
+			{
+				Save();
+			}			
+			else if ((mx >= 653 && mx <= 825) && (my >= 240 && my <= 294))
+			{
+				Load();
+				menu = GAME;
+				iResumeTimer(0);
+				iResumeTimer(1);
+				iResumeTimer(2);
+				iResumeTimer(3);
+				iResumeTimer(4);
+				iResumeTimer(5);
+				iResumeTimer(6);
+			}			
 			else if ((mx >= 653 && mx <= 825) && (my >= 168 && my <= 223))
 				menu = MAIN_MENU;
 			else if ((mx >= 653 && mx <= 825) && (my >= 96 && my <= 151))
@@ -210,7 +236,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -263,7 +289,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -316,7 +342,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -369,7 +395,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -422,7 +448,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -475,7 +501,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -528,7 +554,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -581,7 +607,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -634,7 +660,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -687,7 +713,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -740,7 +766,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -793,7 +819,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -846,7 +872,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -899,7 +925,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -952,7 +978,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1005,7 +1031,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1058,7 +1084,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1111,7 +1137,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1164,7 +1190,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1217,7 +1243,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1270,7 +1296,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1323,7 +1349,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1376,7 +1402,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1429,7 +1455,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1482,7 +1508,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1535,7 +1561,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1588,7 +1614,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1641,7 +1667,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1694,7 +1720,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1747,7 +1773,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1800,7 +1826,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1853,7 +1879,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1906,7 +1932,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -1959,7 +1985,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -2012,7 +2038,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -2065,7 +2091,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -2118,7 +2144,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -2171,7 +2197,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -2224,7 +2250,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (alphabet[supplementary.index] == key && (supplementary.posY >= -supplementary.size && supplementary.posY - 40 <= screenHeight))
 			{
-				PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
+				//PlaySound(TEXT("res/audio/special-book-collect.wav"), NULL, SND_ASYNC);
 				supplementary.count--;
 				int min = lowestScore(book);
 				for (int i = 0; i < 5; i++)
@@ -2308,6 +2334,7 @@ void iKeyboard(unsigned char key)
 		{
 			if (key == '\r')
 			{
+				saveScore();
 				typeMode = false;
 				for(int i = 0; i < len; i++)
 					str2[i] = 0;

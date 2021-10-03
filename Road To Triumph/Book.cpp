@@ -35,7 +35,7 @@ Book::~Book()
 
 void Book::bookUpdate()
 {
-	PlaySound(TEXT("res/audio/book-collect.wav"), NULL, SND_ASYNC);
+	//PlaySound(TEXT("res/audio/book-collect.wav"), NULL, SND_ASYNC);
 	if (score <= 98)
 		score += 2;
 	if (count != 0)
