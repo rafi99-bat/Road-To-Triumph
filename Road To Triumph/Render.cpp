@@ -103,7 +103,7 @@ void showResult()
 		if (len == 0)
 		{
 			iSetColor(150, 150, 150);
-			iText(135, 422, "Enter Name and Surname", GLUT_BITMAP_HELVETICA_18);
+			iText(135, 422, "Enter Your Name", GLUT_BITMAP_HELVETICA_18);
 		}
 		else
 		{
@@ -140,21 +140,22 @@ void showScoreBoard()
 	struct tm tm = *localtime(&t);
 	sprintf(str, "%02d/%02d/%d", tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900);
 	iText(780, 460, str, GLUT_BITMAP_HELVETICA_12);
+
 	iText(186, 324, info[0].name, GLUT_BITMAP_HELVETICA_18);
 	iText(186, 296, info[1].name, GLUT_BITMAP_HELVETICA_18);
 	iText(186, 268, info[2].name, GLUT_BITMAP_HELVETICA_18);
 	iText(186, 241, info[3].name, GLUT_BITMAP_HELVETICA_18);
 	iText(186, 212, info[4].name, GLUT_BITMAP_HELVETICA_18);
 
-	sprintf(str,"%.3lf",info[0].cgpa);
+	sprintf(str, "%.3lf", info[0].cgpa);
 	iText(645, 324, str, GLUT_BITMAP_HELVETICA_18);
-	sprintf(str,"%.3lf",info[1].cgpa);
+	sprintf(str, "%.3lf", info[1].cgpa);
 	iText(645, 296, str, GLUT_BITMAP_HELVETICA_18);
-	sprintf(str,"%.3lf",info[2].cgpa);
+	sprintf(str, "%.3lf", info[2].cgpa);
 	iText(645, 268, str, GLUT_BITMAP_HELVETICA_18);
-	sprintf(str,"%.3lf",info[3].cgpa);
+	sprintf(str, "%.3lf", info[3].cgpa);
 	iText(645, 241, str, GLUT_BITMAP_HELVETICA_18);
-	sprintf(str,"%.3lf",info[4].cgpa);
+	sprintf(str, "%.3lf", info[4].cgpa);
 	iText(645, 212, str, GLUT_BITMAP_HELVETICA_18);
 }
 

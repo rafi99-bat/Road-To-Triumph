@@ -1,7 +1,7 @@
 #ifndef BUBBLE_H
 #define BUBBLE_H
 
-#define MAX_SCORE 100
+#define MAX_SCORE 50
 
 typedef struct Book Book;
 

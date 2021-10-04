@@ -25,7 +25,7 @@ Book::Book(double posX, double speed, int index)
 	this->speed = speed;
 	this->index = index;
 	score = 0;
-	count = 51;
+	count = MAX_SCORE + 1;
 	GPA = 0.00;
 }
 
@@ -35,7 +35,6 @@ Book::~Book()
 
 void Book::bookUpdate()
 {
-	//PlaySound(TEXT("res/audio/book-collect.wav"), NULL, SND_ASYNC);
 	if (score <= 98)
 		score += 2;
 	if (count != 0)
@@ -82,17 +81,17 @@ void initDeclare()
 	supplementary.speed = 3;
 	supplementary.index = rand() % charLength;
 	supplementary.count = 40;
-	supplementary.score = 5;
+	supplementary.score = 4;
 }
 
 int lowestScore(Book book[])
 {
 	int min = book[0].score;
-    for(int i = 0; i < 5; i++){
-        if(book[i].score < min){
-            min = book[i].score;
-        }
-    }
+	for(int i = 0; i < 5; i++){
+		if(book[i].score < min){
+			min = book[i].score;
+		}
+	}
 	return min;
 }
 
@@ -110,20 +109,20 @@ void book0Move()
 {	
 	if (menu == GAME)
 	{
-			if (book[0].posY - 40 > screenHeight)
+		if (book[0].posY - 40 > screenHeight)
+		{
+			if (book[0].count)
 			{
-				if (book[0].count)
-				{
-					book[0].count--;
-					book[0].posX = 313;
-					book[0].posY = -book[0].size - rand() % 300;
-					book[0].index = rand() % (charLength / 5);
-				}
+				book[0].count--;
+				book[0].posX = 313;
+				book[0].posY = -book[0].size - rand() % 300;
+				book[0].index = rand() % (charLength / 5);
 			}
-			else if (book[0].posY - 40 <= screenHeight)
-			{
-				book[0].posY += book[0].speed;
-			}
+		}
+		else if (book[0].posY - 40 <= screenHeight)
+		{
+			book[0].posY += book[0].speed;
+		}
 	}
 }
 
@@ -131,20 +130,20 @@ void book1Move()
 {
 	if (menu == GAME)
 	{
-			if (book[1].posY - 40 > screenHeight)
+		if (book[1].posY - 40 > screenHeight)
+		{
+			if (book[1].count)
 			{
-				if (book[1].count)
-				{
-					book[1].count--;
-					book[1].posX = 455;
-					book[1].posY = -book[1].size - rand() % 300;
-					book[1].index = (charLength / 5) + rand() % (charLength / 5);
-				}
+				book[1].count--;
+				book[1].posX = 455;
+				book[1].posY = -book[1].size - rand() % 300;
+				book[1].index = (charLength / 5) + rand() % (charLength / 5);
 			}
-			else if (book[1].posY - 40 <= screenHeight)
-			{
-				book[1].posY += book[1].speed;
-			}
+		}
+		else if (book[1].posY - 40 <= screenHeight)
+		{
+			book[1].posY += book[1].speed;
+		}
 	}
 }
 
@@ -152,20 +151,20 @@ void book2Move()
 {
 	if (menu == GAME)
 	{
-			if (book[2].posY - 40 > screenHeight)
+		if (book[2].posY - 40 > screenHeight)
+		{
+			if (book[2].count)
 			{
-				if (book[2].count)
-				{
-					book[2].count--;
-					book[2].posX = 597;
-					book[2].posY = -book[2].size - rand() % 300;
-					book[2].index = 2 * (charLength / 5) + rand() % (charLength / 5);
-				}
+				book[2].count--;
+				book[2].posX = 597;
+				book[2].posY = -book[2].size - rand() % 300;
+				book[2].index = 2 * (charLength / 5) + rand() % (charLength / 5);
 			}
-			else if (book[2].posY - 40 <= screenHeight)
-			{
-				book[2].posY += book[2].speed;
-			}
+		}
+		else if (book[2].posY - 40 <= screenHeight)
+		{
+			book[2].posY += book[2].speed;
+		}
 	}
 }
 
@@ -173,20 +172,20 @@ void book3Move()
 {
 	if (menu == GAME)
 	{
-			if (book[3].posY - 40 > screenHeight)
+		if (book[3].posY - 40 > screenHeight)
+		{
+			if (book[3].count)
 			{
-				if (book[3].count)
-				{
-					book[3].count--;
-					book[3].posX = 739;
-					book[3].posY = -book[3].size - rand() % 300;
-					book[3].index = 3 * (charLength / 5) + rand() % (charLength / 5);
-				}
+				book[3].count--;
+				book[3].posX = 739;
+				book[3].posY = -book[3].size - rand() % 300;
+				book[3].index = 3 * (charLength / 5) + rand() % (charLength / 5);
 			}
-			else if (book[3].posY - 40 <= screenHeight)
-			{
-				book[3].posY += book[3].speed;
-			}
+		}
+		else if (book[3].posY - 40 <= screenHeight)
+		{
+			book[3].posY += book[3].speed;
+		}
 	}
 }
 
@@ -194,20 +193,20 @@ void book4Move()
 {
 	if (menu == GAME)
 	{
-			if (book[4].posY - 40 > screenHeight)
+		if (book[4].posY - 40 > screenHeight)
+		{
+			if (book[4].count)
 			{
-				if (book[4].count)
-				{
-					book[4].count--;
-					book[4].posX = 881;
-					book[4].posY = -book[4].size - rand() % 300;
-					book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
-				}
+				book[4].count--;
+				book[4].posX = 881;
+				book[4].posY = -book[4].size - rand() % 300;
+				book[4].index = 4 * (charLength / 5) + rand() % (charLength / 5);
 			}
-			else if (book[4].posY - 40 <= screenHeight)
-			{
-				book[4].posY += book[4].speed;
-			}
+		}
+		else if (book[4].posY - 40 <= screenHeight)
+		{
+			book[4].posY += book[4].speed;
+		}
 	}
 }
 
